@@ -151,22 +151,23 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-// function scoreboard(getInningScorecb, inningcb) {
-//   return [];
-// }
+function scoreboard(getInningScorecb, inningcb) {
+  let inningScore = [];
+  let homeScore = 0;
+  let awayScore = 0;
 
+  for (let i = 0; i < 9; i++) {
+    const currentScore = getInningScorecb(inningcb);
+    homeScore = homeScore + currentScore.Home;
+    awayScore = awayScore + currentScore.Away;
+    inningScore.push(`Inning ${i + 1} Away ${awayScore} - Home ${homeScore}`);
+  }
+  return inningScore;
+}
 
-function sayHi(){
-  let names = ["Kali", "Inderpal", "Nicole", "Megan"];
-  for(x in names){
-  console.log(`Hi my name is ${names[x]}`)
-  };
- 
- console.log(names);
- sayHi();
+//tie statement if/else
 
-
-//console.log(scoreboard(getInningScore, inning));
+console.log(scoreboard(getInningScore, inning));
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo() {
   console.log("its working");
