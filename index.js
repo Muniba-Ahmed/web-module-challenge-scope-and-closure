@@ -162,12 +162,20 @@ function scoreboard(getInningScorecb, inningcb) {
     awayScore = awayScore + currentScore.Away;
     inningScore.push(`Inning ${i + 1} Away ${awayScore} - Home ${homeScore}`);
   }
+
+  if (homeScore !== awayScore) {
+    inningScore.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
+  } else {
+    inningScore.push(
+      `This game will require extra innings: Away ${awayScore} - Home ${homeScore}`
+    );
+  }
   return inningScore;
 }
 
-//tie statement if/else
-
 console.log(scoreboard(getInningScore, inning));
+//if/else
+
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo() {
   console.log("its working");
